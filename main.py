@@ -1,6 +1,13 @@
 f = lambda x: (x - 2) ** 2
 
-def bisection_method(interval: list[int], epsilon: float):
+def bisection_method(interval: list[float], epsilon: float) -> (float, float):
+    """
+    метод половинного деления для нахождения минимума с заданной точностью epsilon на интервале interval
+    :param interval:
+    :param epsilon:
+    :return:
+    """
+
     a, b = interval
     delta = epsilon / 3
 
