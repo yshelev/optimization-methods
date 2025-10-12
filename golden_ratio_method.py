@@ -1,14 +1,17 @@
 import math
 from func import f
+from utils import print_iterations
 
 
-def golden_ratio_method(interval: list[int], epsilon: float) -> (float, float, int):
+def golden_ratio_method(interval: list[int], epsilon: float) -> tuple[float, float, int]:
 	"""
 	Метод золотого сечения для поиска минимума на интервале interval с заданной точностью epsilon
 	:param interval:
 	:param epsilon:
 	:return:
 	"""
+	iterations: list = []
+
 	str_lambda = (math.sqrt(5) - 1) / 2
 	inv_lambda = (3 - math.sqrt(5)) / 2
 	a, b = interval
@@ -20,6 +23,15 @@ def golden_ratio_method(interval: list[int], epsilon: float) -> (float, float, i
 
 	a_k = a + inv_lambda * (b - a)
 	b_k = a + str_lambda * (b - a)
+
+	iterations.append({
+		"alpha": a_k,
+		"betta": b_k,
+		"a": a,
+		"b": b,
+		"len": b - a,
+		"iteration": 0
+	})
 
 	while b - a >= epsilon:
 		iteration += 1
@@ -38,6 +50,17 @@ def golden_ratio_method(interval: list[int], epsilon: float) -> (float, float, i
 			b_k = a + str_lambda * (b - a)
 			f_ak = f_bk
 			f_bk = 0
+
+		iterations.append({
+			"alpha": a_k,
+			"betta": b_k,
+			"a": a,
+			"b": b,
+			"len": b - a,
+			"iteration": iteration
+		})
+
+	print_iterations(iterations)
 
 	x_s = (a + b) / 2
 	return x_s, f(x_s), iteration

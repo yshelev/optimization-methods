@@ -1,3 +1,5 @@
+import math
+
 class F:
 	count: int = 0
 
@@ -9,7 +11,7 @@ class F:
 		self.count = 0
 
 	def _func(self, x: float) -> float:
-		return (x - 2) ** 2
+		return (0.5 * x - 5) ** 3 * math.e ** (x / 4)
 
 	def __str__(self):
 		return str(self.count)
