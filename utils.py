@@ -1,7 +1,8 @@
 import pandas as pd
 
+
 def print_iterations(
-	iterations_list: list
+	iterations_list: list, 
 ) -> None:
 	dict_to_pd_adapter_dict = {
 		"a": [iteration["a"] for iteration in iterations_list],
@@ -18,5 +19,5 @@ def print_iterations(
 	iterations_data_frame = pd.DataFrame(
 		dict_to_pd_adapter_dict
 	)
-
+	
 	print(iterations_data_frame)

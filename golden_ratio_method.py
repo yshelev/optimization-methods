@@ -60,7 +60,9 @@ def golden_ratio_method(interval: list[int], epsilon: float) -> tuple[float, flo
 			"iteration": iteration
 		})
 
-	print_iterations(iterations)
+	print_iterations(
+		iterations, 
+    )
 
 	x_s = (a + b) / 2
 	return x_s, f(x_s), iteration

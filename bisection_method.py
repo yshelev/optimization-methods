@@ -34,6 +34,9 @@ def bisection_method(interval: list[float], epsilon: float) -> tuple[float, floa
             a = a_k
 
     x_s = (a + b) / 2
-    print_iterations(iterations)
+    
+    print_iterations(
+        iterations, 
+    )
 
     return x_s, f(x_s), iteration
