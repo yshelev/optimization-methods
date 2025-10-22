@@ -14,6 +14,8 @@ class F:
 		return (0.5 * x - 5) ** 3 * math.e ** (x / 4)
 
 	def __str__(self):
-		return str(self.count)
+		value = self.count
+		self.reset()
+		return f"Количество вызовов функции: {str(value)}"
 
 f = F()
