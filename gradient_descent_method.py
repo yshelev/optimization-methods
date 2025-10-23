@@ -1,26 +1,25 @@
-from func import grad
+from func import grad, func
+import numpy as np
 
 def gradient_descent_method(
-    gradient: callable,
     h: float,
-    e: float = 10e-6, 
+    e: float = 10e-18, 
     max_iters: int = 1000
 ): 
-    x_k = [10, 10, 10]
+    x_k = np.array([10, 10, 10])
 
     for i in range(max_iters): 
-        gradient = grad(*x_k)
+        gradient = grad(x_k)
+        print(gradient)
         x_new = x_k - h * gradient
-        print(i)
+        print(i, x_new, h) 
 
-        if vector_norm([x_k[i] - x_new[i] for i in range(3)]) < e: 
+        if sum((x_k - x_new) ** 2) < e: 
             return x_k
-    
+        
+        if func(x_k) <= func(x_new): 
+            h /= 2
+        
         x_k = x_new
-
-
-def vector_norm(x):
-    summ = 0
-
-    for i in x: 
-        summ += i ** 2
+    
+    return x_k
