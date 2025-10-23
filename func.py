@@ -1,6 +1,15 @@
 import numpy as np
 
-def func(vector: np.array) -> np.float64: 
-    return vector[0] ** 2 + (vector[1] - 4) ** 2 + vector[2] ** 2
-def grad(vector: np.array) -> np.array: 
-    return np.array([2 * vector[0], 2 * (vector[1] - 4), 2 * vector[2]])
+A = np.array([
+    [5, 1, 2],
+    [1, 4, 1],
+    [2, 1, 3]
+])
+
+B = np.array([
+    1, 1, 1
+])
+def func(x: np.array) -> np.float64: 
+    return 0.5 * (x.T @ A @ x) + B.T @ x
+def grad(x: np.array) -> np.array: 
+    return (A @ x) + B
