@@ -7,7 +7,7 @@ A = np.array([
 ])
 
 B = np.array([
-    1, 1, 1
+    2, 2, 2
 ])
 def func(x: np.array) -> np.float64: 
     return 0.5 * (x.T @ A @ x) + B.T @ x

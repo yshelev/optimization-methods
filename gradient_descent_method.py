@@ -3,7 +3,7 @@ import numpy as np
 
 def gradient_descent_method(
     h: float = 2,
-    start_point: np.ndarray = np.array([1, 1, 1]), 
+    start_point: np.ndarray = np.array([1, 0, 10]), 
     e: float = 10e-18, 
     max_iters: int = 10000
 ): 
