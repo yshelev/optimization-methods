@@ -12,6 +12,6 @@ print(f_xk)
 
 
 print("аналитическое решение (Ax = -b)")
-print(exec_sol := np.linalg.solve(A, -B))
+print_x(exec_sol := np.linalg.solve(A, -B))
 
 print(func(exec_sol))
