@@ -3,12 +3,12 @@ import numpy as np
 
 def gradient_descent_method(
     h: float = 2,
-    start_point: np.array = np.array([1, 1, 1]), 
+    start_point: np.ndarray = np.array([1, 1, 1]), 
     e: float = 10e-18, 
     max_iters: int = 10000
 ): 
     x_k = start_point
-
+    
     gradient = grad(x_k)
     x_new = x_k - h * gradient
     change_condition = func(x_new) <= func(x_k)
